@@ -37,7 +37,11 @@ async fn main() -> Result<()> {
                 .help("Prints debug log information"),
         );
 
+    println!("Starting application");
+
     let matches = app.clone().get_matches();
+
+    println!("Debug param : {}", matches.is_present("debug"));
 
     if matches.is_present("FULLHELP") {
         app.print_long_help().unwrap();
