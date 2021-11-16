@@ -156,7 +156,9 @@ async fn main() -> Result<()> {
 
     // Wait for the offer to be pasted
     let line = signal::must_read_stdin()?;
-    let desc_data = signal::decode(line.as_str())?;
+    let line_str = line.as_str();
+    println!("Signal Line Str: {}", line_str);
+    let desc_data = signal::decode(line_str)?;
     let offer = serde_json::from_str::<RTCSessionDescription>(&desc_data)?;
 
     // Set the remote SessionDescription
